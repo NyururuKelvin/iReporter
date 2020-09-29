@@ -8,7 +8,8 @@ class User(db.Model):
     email = db.Column(db.String(255), unique=True, index=True)
     password = db.Column(db.String(255))
     role_id = db.Column(db.Integer, db.ForeignKey("roles.id"))
-    status_id = db.Column(db.Integer, db.ForeignKey("statuses.id"))
+    cases = db.relationship("Case", backref="user", lazy="dynamic")
+    
 
     def __repr__(self):
         return f"User {self.username}"
@@ -29,12 +30,12 @@ class Status(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.String(255))
-    user_id = db.relationship("Cases", backref="role", lazy="dynamic") # admin altering the status
+    cases = db.relationship("Case", backref="status", lazy="dynamic") # admin altering the status
 
     def __repr__(self):
         return f"Status {self.status}"
     
-class Cases(db.Model):
+class Case(db.Model):
     __tablename__ = "cases"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -44,8 +45,8 @@ class Cases(db.Model):
     image = db.Column(db.String(255))
     video = db.Column(db.String(255))
     geolocation = db.Column(db.String(255))
-    reporter_email = db.Column(db.Integer, db.ForeignKey("users.id"))
-    status = db.Column(db.Integer, db.ForeignKey("statuses.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    status_id = db.Column(db.Integer, db.ForeignKey("statuses.id"))
 
     def __repr__(self):
         return f"Cases {self.title}"
