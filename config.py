@@ -4,9 +4,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    # app.config.update(dict(
-    SECRET_KEY="powerful secretkey",
-    SECRET_KEY='Flask WTF Secret Key'
+    
     # WTF_CSRF_SECRET_KEY = "a csrf secret key"))
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
     SQLALCHEMY_TRACK_MODIFICATIONS = False
