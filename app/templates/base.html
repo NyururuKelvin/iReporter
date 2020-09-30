@@ -1,4 +1,30 @@
+<<<<<<< HEAD
 {% extends 'bootstrap/base.html'%}
 
     
 {% endblock %}
+=======
+{% extends 'bootstrap/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i-Repoter</title>
+</head>
+<body>
+    {% block styles%}
+    {{super()}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    {% endblock %}
+   
+    {% block content %}
+        {%block navbar%}
+        {% include 'navbar.html' %}
+        {%endblock%}
+    {% endblock %}  
+</body>
+</html>
+>>>>>>> 9b03eeff7da36bfc3f71b9da63acc7b0a1699871
