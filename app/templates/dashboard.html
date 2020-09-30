@@ -1,0 +1,80 @@
+{% extends 'base.html'%}
+{% block styles%}
+    {{super()}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/incident.css')}}">
+{% endblock%}
+
+{%block content%}
+<div class="container">
+    <div class="flex-container db-card-row">
+        <div class="db-card">
+            <h3>Received</h3>
+            <span>4</span>
+        </div>
+        <div class="db-card">
+            <h3>Under Investigation</h3>
+            <span>1</span>
+        </div>
+        <div class="db-card">
+            <h3>Resolved</h3>
+            <span>1</span>
+        </div>
+        <div class="db-card">
+            <h3>Rejected</h3>
+            <span>0</span>
+        </div>
+    </div>
+    <div class="db-content table bg-thematic-dark">
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Media</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>1</td>
+                <td>Bribing at Kinoo</td>
+                <td>Red Flag</td>
+                <td>A police woman was taking money from a matatu at Kinoo stage</td>
+                <td>Waiyaki Way, Nairobi</td>
+                <td>draft</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Huge pothole</td>
+                <td>Intervention</td>
+                <td>A huge pothole is on Landhies road is causing a lot of traffic</td>
+                <td>Landhies road, Nairobi</td>
+                <td>Under Investigation</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Nepotism</td>
+                <td>Red flag</td>
+                <td>A huge pothole is on Landhies road is causing a lot of traffic</td>
+                <td>Landhies road, Nairobi</td>
+                <td>Resolved</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Fallen Bridge</td>
+                <td>Intervention</td>
+                <td>A huge pothole is on Landhies road is causing a lot of traffic</td>
+                <td>Landhies road, Nairobi</td>
+                <td>Rejected</td>
+                <td>True</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{%endblock%}
