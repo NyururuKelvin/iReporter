@@ -8,4 +8,4 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('dashboard.html')
+    return render_template('edit_incident.html')
