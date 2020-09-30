@@ -4,27 +4,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static',filename='css/incident.css')}}">
 {% endblock%}
-
 {%block content%}
 <div class="container">
-    <div class="flex-container db-card-row">
-        <div class="db-card">
-            <h3>Received</h3>
-            <span>4</span>
-        </div>
-        <div class="db-card">
-            <h3>Under Investigation</h3>
-            <span>1</span>
-        </div>
-        <div class="db-card">
-            <h3>Resolved</h3>
-            <span>1</span>
-        </div>
-        <div class="db-card">
-            <h3>Rejected</h3>
-            <span>0</span>
-        </div>
-    </div>
     <div class="db-content table bg-info">
         <table class="main-table">
             <thead>
@@ -36,6 +17,8 @@
                     <th>Location</th>
                     <th>Status</th>
                     <th>Media</th>
+                    <th>User</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tr>
@@ -46,6 +29,8 @@
                 <td>Great North RD, Nakuru</td>
                 <td>draft</td>
                 <td>-</td>
+                <td>Nyururu</td>
+                <td><i class="fas fa-trash"></i> <a href="./edit_incident.html"><i class="fas fa-edit"></i></a></i></td>
             </tr>
             <tr>
                 <td>2</td>
@@ -54,7 +39,9 @@
                 <td>Countless potholes on Mwiki road causing a lot of traffic</td>
                 <td>Mwiki, Kiambu</td>
                 <td>Under Investigation</td>
-                <td>True</td>
+                <td>No</td>
+                <td>Amimo</td>
+                <td><i class="fas fa-trash"></i> <a href="./edit_incident.html"><i class="fas fa-edit"></i></a></i></td>
             </tr>
             <tr>
                 <td>3</td>
@@ -63,7 +50,9 @@
                 <td>Bribing at Engineer Birth Registration center</td>
                 <td>Engineer, Nyandarua</td>
                 <td>Resolved</td>
-                <td>True</td>
+                <td>Yes</td>
+                <td>Sheila</td>
+                <td><i class="fas fa-trash"></i> <a href="./edit_incident.html"><i class="fas fa-edit"></i></a></i></td>
             </tr>
             <tr>
                 <td>4</td>
@@ -72,7 +61,9 @@
                 <td>A fallen Bridge at Muhoroni cutting transport</td>
                 <td>Muhoroni, Kisumu</td>
                 <td>Rejected</td>
-                <td>True</td>
+                <td>-</td>
+                <td>Pretorious</td>
+                <td><i class="fas fa-trash"></i> <a href="./edit_incident.html"><i class="fas fa-edit"></i></a></i></td>
             </tr>
         </table>
     </div>

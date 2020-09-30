@@ -4,26 +4,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static',filename='css/incident.css')}}">
 {% endblock%}
-
 {%block content%}
 <div class="container">
-    <div class="flex-container db-card-row">
-        <div class="db-card">
-            <h3>Received</h3>
-            <span>4</span>
-        </div>
-        <div class="db-card">
-            <h3>Under Investigation</h3>
-            <span>1</span>
-        </div>
-        <div class="db-card">
-            <h3>Resolved</h3>
-            <span>1</span>
-        </div>
-        <div class="db-card">
-            <h3>Rejected</h3>
-            <span>0</span>
-        </div>
+    <div class="flex-container add-button">
+        <a href="{{url_for('main.index')}}">
+            <button class="form-button">Add an Incident</button>
+        </a>
     </div>
     <div class="db-content table bg-info">
         <table class="main-table">
@@ -46,6 +32,7 @@
                 <td>Great North RD, Nakuru</td>
                 <td>draft</td>
                 <td>-</td>
+                <td><i class="fas fa-trash"></i></td>
             </tr>
             <tr>
                 <td>2</td>
@@ -55,6 +42,7 @@
                 <td>Mwiki, Kiambu</td>
                 <td>Under Investigation</td>
                 <td>True</td>
+                <td><i class="fas fa-trash"></i></td>
             </tr>
             <tr>
                 <td>3</td>
@@ -64,6 +52,7 @@
                 <td>Engineer, Nyandarua</td>
                 <td>Resolved</td>
                 <td>True</td>
+                <td><i class="fas fa-trash"></i></td>
             </tr>
             <tr>
                 <td>4</td>
@@ -73,8 +62,9 @@
                 <td>Muhoroni, Kisumu</td>
                 <td>Rejected</td>
                 <td>True</td>
+                <td><i class="fas fa-trash"></i></td>
             </tr>
         </table>
     </div>
 </div>
-{%endblock%}
+{% endblock%}

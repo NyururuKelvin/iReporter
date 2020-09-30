@@ -9,11 +9,6 @@ html {
     font-family: 'Lato', sans-serif;
 }
 
-.bg {
-    background: rgb(32, 52, 64);
-    background: linear-gradient(90deg, rgba(32, 52, 64, 1) 0%, rgba(184, 94, 78, 1) 50%, rgba(32, 52, 64, 1) 97%);
-}
-
 /*Utility class definitions for reuse*/
 .container {
     width: 80%;
