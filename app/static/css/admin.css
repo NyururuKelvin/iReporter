@@ -1,0 +1,8 @@
+.container {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+button:hover {
+    cursor: pointer;
+}

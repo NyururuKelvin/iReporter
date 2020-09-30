@@ -1,4 +1,6 @@
+from wtforms.fields.core import SelectField
 from . import db
+
 
 class User(db.Model):
     __tablename__ = "users"
@@ -9,7 +11,6 @@ class User(db.Model):
     password = db.Column(db.String(255))
     role_id = db.Column(db.Integer, db.ForeignKey("roles.id"))
     cases = db.relationship("Case", backref="user", lazy="dynamic")
-    
 
     def __repr__(self):
         return f"User {self.username}"
@@ -24,22 +25,29 @@ class Role(db.Model):
 
     def __repr__(self):
         return f"Role {self.name}"
-      
+
+
 class Status(db.Model):
     __tablename__ = "statuses"
 
     id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.String(255))
-    cases = db.relationship("Case", backref="status", lazy="dynamic") # admin altering the status
+    cases = db.relationship(
+        "Case", backref="status", lazy="dynamic"
+    )  # admin altering the status
+    
+    def __init__(self, status):
+        self.status = status
 
     def __repr__(self):
         return f"Status {self.status}"
-    
+
+
 class Case(db.Model):
     __tablename__ = "cases"
 
     id = db.Column(db.Integer, primary_key=True)
-    category = db.Column(db.String(255)) # corruption or intervention
+    category = db.Column(db.String(255))  # corruption or intervention
     title = db.Column(db.String(255))
     description = db.Column(db.String(255))
     image = db.Column(db.String(255))

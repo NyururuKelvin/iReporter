@@ -6,9 +6,10 @@ class Config:
     '''
     
     # WTF_CSRF_SECRET_KEY = "a csrf secret key"))
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
+    SECRET_KEY = 'secret'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://james:1@localhost/ireporter'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    UPLOADED_PHOTOS_DEST ='app/static/photos'
+    # UPLOADED_PHOTOS_DEST ='app/static/photos'
 
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -33,11 +34,11 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     pass
 
 class DevConfig(Config):
@@ -47,7 +48,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     DEBUG = True
 
 config_options = {
