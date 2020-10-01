@@ -1,22 +1,20 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf%}
 {% block styles%}
-    {{super()}}
-    <link rel="stylesheet" href="../static/css/post.css">
+{{super()}}
+<link rel="stylesheet" href="../static/css/post.css">
 {% endblock %}
 {% block content%}
-<h1 class="text-center">{{post.title}}</h1>
-    <div class="container content">
-        <div class="post-card text-center">
-            <div class="img-container">
-                <img class="text-center img-responsive" src="{{url_for('static', filename=post.image)}}" alt="" height="600px"
-                    width="750px">
-            </div>
-            <h2>{{post.title}}</h2>
-            <div>
-                <p>{{post.content}}</p>
+<div class="container content">
+<div class="row">
+    <div class="col-md-6">
+        <div class="card" style="width: 50rem;">
+            <img src="{{url_for('static', filename=post.image)}}" class="card-img-top" alt="" height="350px" width="350px">
+            <div class="card-body">
+                <p class="card-text">{{post.title}}</p>
+                <p class="card-text">{{post.description}}</p>
             </div>
         </div>
-      
     </div>
+</div>
 {% endblock%}
