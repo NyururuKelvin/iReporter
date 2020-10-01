@@ -1,0 +1,12 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<div class="containter">
+   <div class="case">
+    {{ case.title}}
+   </div>
+      <div class="case-form">
+      {{ wtf.quick_form(form) }}
+    </div>
+</div>
+{% block content %}
+{% endblock%}

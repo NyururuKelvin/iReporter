@@ -1,20 +1,60 @@
+from wtforms.fields.core import SelectField
 from . import db
+
+
+class User(db.Model):
+    __tablename__ = "users"
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(255))
+    email = db.Column(db.String(255), unique=True, index=True)
+    password = db.Column(db.String(255))
+    role_id = db.Column(db.Integer, db.ForeignKey("roles.id"))
+    cases = db.relationship("Case", backref="user", lazy="dynamic")
+
+    def __repr__(self):
+        return f"User {self.username}"
+
+
+class Role(db.Model):
+    __tablename__ = "roles"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
+    users = db.relationship("User", backref="role", lazy="dynamic")
+
+    def __repr__(self):
+        return f"Role {self.name}"
+
+
+class Status(db.Model):
+    __tablename__ = "statuses"
+
+    id = db.Column(db.Integer, primary_key=True)
+    status = db.Column(db.String(255))
+    cases = db.relationship(
+        "Case", backref="status", lazy="dynamic"
+    )  # admin altering the status
+    
+    def __init__(self, status):
+        self.status = status
+
+    def __repr__(self):
+        return f"Status {self.status}"
+
 
 class Case(db.Model):
     __tablename__ = "cases"
 
     id = db.Column(db.Integer, primary_key=True)
-    category = db.Column(db.String(255)) # corruption or intervention
+    category = db.Column(db.String(255))  # corruption or intervention
     title = db.Column(db.String(255))
-    description = db.Column(db.String(255), index = True)
+    description = db.Column(db.String(255))
     image = db.Column(db.String(255))
     video = db.Column(db.String(255))
     geolocation = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    status_id = db.Column(db.Integer, db.ForeignKey("statuses.id"))
 
     def __repr__(self):
-        return f"Case {self.description}"
-
-    @classmethod
-    def get_case(cls,id):
-        cases = Case.query.filter_by(id=id).all()
-        return cases
+        return f"Cases {self.title}"
