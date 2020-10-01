@@ -14,7 +14,7 @@ def index():
     View root page function that returns the index page and its data
     '''
     cases = Case.query.order_by(Case.category)
-    return render_template('display.html',cases=cases)
+    return render_template('index.html',cases=cases)
 
 @main.route("/Add/case/",methods = ["GET","POST"])
 def case():
