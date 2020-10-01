@@ -1,1 +1,1 @@
-3.6.6
+web: gunicorn manage:app
