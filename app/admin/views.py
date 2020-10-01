@@ -5,7 +5,7 @@ from .forms import StatusForm
 from .. import db
 
 
-@admin.route("/admin/")
+@admin.route("/cases")
 def listCases():
 
     """
@@ -17,7 +17,7 @@ def listCases():
     return render_template("admin/cases.html", cases=cases)
 
 
-@admin.route("/admin/case/<int:id>", methods=["GET", "POST"])
+@admin.route("case/<int:id>", methods=["GET", "POST"])
 def updateStatus(id):
     # case = Case.query.get(id)
     case = Case.query.get(id)
