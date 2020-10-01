@@ -1,16 +1,13 @@
 {% extends 'base.html'%}
 {% block content %}
 <style>
-*{
-    margin: 0px;
-    
-}
 #main{
     width: 100%;
     height: 100%;
     position: absolute;
     background-image: url('https://image.freepik.com/foto-gratis/juez-martillo-esposas-mesa-madera_93675-75922.jpg');
     background-size: cover;
+    background-color: black;
 }
 /* #box1{
    width: 530px;
@@ -37,21 +34,19 @@
     font-size: 4em;
     font-weight: 500;
     line-height: absolute;
-    top: 250px;
     left: 100px;
-    padding-top: 0.3px;
-    margin-left: 20px;
+    margin-left: 100px;
 }
 #box2 h1{
     color: brown;
-    font-size: 1em;
+    font-size: 2em;
     font-weight: 500;
 }
 #box2 p{
     color: cornsilk;
-    font-size: 0.3em;
+    font-size: 0.4em;
     font-weight: 500;
-    margin-left: 40px;
+    margin-left: 100px;
 }
 
 /* #box3{
@@ -71,9 +66,39 @@
     width: 800px;
 }
 
+#services{
+    color:cornsilk;
+    margin-top: 220px;
+    margin-left: 0px;
+}
+/* #myCarousel{
+    float: left;
+} */
+.carousel-inner h4{
+    padding-left: 250px;
+    color: brown;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.carousel-inner p{
+    padding-left: 150px;
+    color: cornsilk;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.carousel-indicators{
+    margin-right: 0.05px;
+}
+#box1{
+    float:right;
+    color: cornsilk;
+}
+
 </style>
     <div id="main">
-        <div id="box1"></div>
+        <div id="box1">
+            <p><span style="color: brown;">Email:</span>report@ireporter.co.ke <span style="color:brown;">Call:</span> +254712345678</p> 
+        </div>
 
         <!-- <div id="box3">
             <div id="logo">
@@ -84,15 +109,50 @@
         <div id="box2">
             <div id="text">
                 <h1>i-Reporter</h1>
-                <p>'You report it we fix it'</p>
+                <p>'You report it, We fix it'</p>
             </div>
         </div>
+   
+    </div>
+    <div id="services">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+           <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <h4>Our Services</h4>
+                    <p>Post Red Flags or Intervention and track the resolution process</p>
+                </div>
+            
+                <div class="item">
+                    <h4>Report a Red Flag</h4>
+                    <p>Report any incidences of crime or corruption and seek justice</p>
+                </div>
+            
+                <div class="item">
+                    <h4>Seek an Intervention</h4>
+                    <p>Draw the attention of the authorities to mulfunctioning systems.</p>
+                </div>
+
+            </div>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+        
 
         
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
-
-        
-
-
-    </div>
+         
 {% endblock %} 
