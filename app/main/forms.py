@@ -10,3 +10,9 @@ class PostForm(FlaskForm):
     Description = StringField('Description', validators=[InputRequired(message="Description required")])
     submit= SubmitField('Submit')
 
+class AddPostForm(FlaskForm):
+    category = SelectField('Category', choices=[('Red flag', 'Red flag'), ('Intervention', 'Intervention')], validators=[InputRequired(message="Category required")])
+    title = StringField("Title", validators = [Required()])
+    content = TextAreaField("Description", validators = [Required()])
+    geolocation = StringField("Geo Location", validators = [Required()])
+    submit = SubmitField("Add Post")
