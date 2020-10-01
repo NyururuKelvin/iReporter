@@ -5,7 +5,7 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_wtf import FlaskForm
 
 # Creating app instance
-app = create_app('development')
+app = create_app('production')
 # app = create_app('test')
 
 manager= Manager(app)
