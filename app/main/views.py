@@ -5,6 +5,7 @@ from .forms import AddPostForm
 from datetime import datetime
 from .. import db,photos
 from app.models import Case,User,Role,Status
+from flask_login import login_required
 
 # views
 @main.route('/')
@@ -16,8 +17,9 @@ def index():
     cases = Case.query.order_by(Case.category)
     return render_template('index.html',cases=cases)
 
-@main.route("/Add/case/",methods = ["GET","POST"])
-def case():
+@main.route("/uname/case/",methods = ["GET","POST"])
+@login_required
+def case(uname):
     form = AddPostForm()
     title = "Add Post"
     if form.validate_on_submit():
@@ -41,3 +43,12 @@ def case():
 def map(place):
 
     return render_template('add_incidence.html',place=place)
+
+@main.route('/dashboard')
+def dashboard():
+
+    '''
+    View root page function that returns the dashboard page and its data
+    '''
+
+    return render_template('dashboard.html')

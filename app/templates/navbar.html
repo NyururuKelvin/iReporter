@@ -24,29 +24,24 @@
               </div>
               <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav" style="display: inline;">
-                      <li><a style="color: brown; padding-left: 30px;" href="#">Home</a></li>
-                      <li><a style="color: brown; padding-left:30px;" href="#">Dashboard</a></li>
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" style="color: brown; padding-left: 30px;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Report
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" style="color: brown; padding-left: 30px;">Red Flag</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="color: brown;">Intervention</a>
-                          </div>
-                      </li>
+                      <li><a style="color: brown; padding-left: 30px;" href="/">Home</a></li>
+                      <li><a style="color: brown; padding-left:30px;" href="/dashboard">Dashboard</a></li>
+                      
+                      {% if current_user.is_authenticated%}
+                      <li><a style="color: brown; padding-left:30px;" href="{{url_for('main.case')}}">Report</a></li>
+                      
+                      <li><a style="color: brown; padding-left: 30px;" href="{{url_for('auth.logout')}}">Sign Out</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right" style="display: inline;">
-                  
+                    {% else %}
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" style="color: brown; padding-left: 30px;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sign Up
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" style="color: brown;">Admin</a>
+                            <a class="dropdown-item" href="{{url_for('auth.login')}}" style="color: brown;">Admin</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="color: brown;">User</a>
+                            <a class="dropdown-item" href="{{url_for('auth.login')}}" style="color: brown;">User</a>
                           </div>
                       </li>
                       <li class="nav-item dropdown">
@@ -54,17 +49,16 @@
                             Sign In
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" style="color: brown;">Admin</a>
+                            <a class="dropdown-item" href="{{url_for('auth.login')}}" style="color: brown;">Admin</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="color: brown;">User</a>
+                            <a class="dropdown-item" href="{{url_for('auth.login')}}" style="color: brown;">User</a>
                           </div>
                       </li>
                       
-                      <li><a style="color: brown; padding-left: 30px;" href="#">Sign Out</a></li>
-                        
+                    {% endif %}   
                   </ul>
               </div>
           </div>
       </div>    
-  </nav>  
+  </nav> 
 </body>

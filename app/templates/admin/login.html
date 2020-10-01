@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container">
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
@@ -32,7 +33,7 @@
                     {% endif %}
                 </div>
                 <div class="form-check">
-                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember(class="form-check-input") }} <br>
                     {{ form.remember.label(class="form-check-label") }}
                 </div>
             </fieldset>
@@ -46,7 +47,8 @@
     </div>
     <div class="border-top pt-3">
         <small class="text-muted">
-            Need An Account? <a class="ml-2" href="{{ url_for('admin.register') }}">Sign Up Now</a>
+            Need An Account? <a class="ml-2" href="{{ url_for('login.register') }}">Sign Up Now</a>
         </small>
     </div>
+</div>
 {% endblock content %}

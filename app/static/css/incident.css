@@ -28,64 +28,6 @@ html {
     background-color: #020b10d6;
 }
 
-/**********************
-NAVBAR STYLES
-************************/
-.navbar .container {
-    height: inherit;
-}
-
-.navbar {
-    background-color: #112f41;
-    height: 60px;
-    box-shadow: 0px 1px 10px 7px black;
-}
-
-.navbar .container span {
-    height: inherit;
-}
-
-.nav {
-    list-style: none;
-    display: inline-block;
-    height: inherit;
-}
-
-/* Styles for the nav links*/
-
-
-.nav-item {
-    display: inline-block;
-    height: inherit;
-    padding: 20px 5px;
-    font-size: 16px;
-}
-
-.nav-item a {
-    text-decoration: none;
-    color: #F2B134;
-}
-
-.nav-item:hover,
-.nav-item a:hover {
-    background-color: #068587;
-    color: azure !important;
-}
-
-.nav-right {
-    float: right;
-}
-
-
-.index .nav-right .nav-item{
-    font-size: 20px;
-    padding: 20px 5px;
-}
-.nav-brand {
-    font-family: 'Dancing Script', cursive;
-    font-size: 40px !important;
-    padding-top: 5px;
-}
 
 @media (max-width:464px) {
     .nav-brand {
