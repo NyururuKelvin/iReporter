@@ -17,9 +17,9 @@ def index():
     cases = Case.query.order_by(Case.category)
     return render_template('index.html',cases=cases)
 
-@main.route("/uname/case/",methods = ["GET","POST"])
+@main.route("/Add/case/",methods = ["GET","POST"])
 @login_required
-def case(uname):
+def case():
     form = AddPostForm()
     title = "Add Post"
     if form.validate_on_submit():
@@ -52,3 +52,18 @@ def dashboard():
     '''
 
     return render_template('dashboard.html')
+
+@main.route("/post/<int:id>",methods = ["GET","POST"])
+def post_page(id):
+    post = Case.query.filter_by(id = id).first()
+    title = post.title
+    form = AddComment()
+    if form.validate_on_submit():
+        name = form.name.data
+        content = form.comment.data
+        new_comment = Comment(name = name, content = content, post = post)
+        new_comment.save_comment()
+        return redirect(url_for('main.post_page', id = post.id))
+    comments = Comment.query.filter_by(post_id = post.id)
+    title = post.title
+    return render_template("display.html", title = title, post = post,form = form,comments = comments)

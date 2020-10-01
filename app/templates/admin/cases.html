@@ -1,0 +1,32 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block styles%}
+<link rel="stylesheet" href="{{url_for('static',filename='css/admin.css')}}">
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Update</th>
+
+        <tr>
+    </thead>
+    <tbody>
+        {% for case in cases %}
+        <tr>
+            <td>{{ case.category }}</td>
+            <td>{{ case.title }}</td>
+            <td>{{ case.status }}</td>
+            <td>
+              <a href="/admin/case/{{case.id}}">
+                <button type="button" class="btn">Update</button>
+              </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock%}
