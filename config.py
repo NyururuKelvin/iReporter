@@ -4,9 +4,9 @@ class Config:
     '''
     General configuration parent class
     '''
-    
+    SECRET_KEY='Flask WTF Secret Key'
     # WTF_CSRF_SECRET_KEY = "a csrf secret key"))
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://nelly:kamotho@localhost/ireporter'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
@@ -33,11 +33,12 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://nelly:kamotho@localhost/ireporter'
     pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://nelly:kamotho@localhost/ireporter '
+    
     pass
 
 class DevConfig(Config):
@@ -47,7 +48,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2:// :  @localhost/ '
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://nelly:kamotho@localhost/ireporter'
     DEBUG = True
 
 config_options = {
