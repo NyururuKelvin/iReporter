@@ -34,52 +34,29 @@
         <table class="main-table">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Location</th>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Geolocation</th>
                     <th>Status</th>
-                    <th>Media</th>
+                    <th>View Case</th>
                 </tr>
             </thead>
+            <tbody>
+            {% for case in cases %}
             <tr>
                 <p>
-                <td style="color: white;">1</td>
-                <td style="color: white;">Bribing at Salgaa</td>
-                <td style="color: white;">Red Flag</td>
-                <td style="color: white;">A police woman was taking money from a matatu at Salgaa road block</td>
-                <td style="color: white;">Great North RD, Nakuru</td>
-                <td style="color: white;">draft</td>
-                <td style="color: white;">-</td>
+                <td style="color: white;">{{case.category}}</td>
+                <td style="color: white;">{{case.title}}</td>
+                <td style="color: white;">{{case.geolocation}}</td>
+                <td style="color: white;">{{case.status}}</td>
+                <td style="color: white;">
+                    <a href="/post/{{case.id}}">
+                        <button type="button" class="btn btn-primary">View</button>
+                        </a> 
+                </td>
             </tr>
-            <tr>
-                <td style="color: white;">2</td>
-                <td style="color: white;">Countless pothole</td>
-                <td style="color: white;">Intervention</td>
-                <td style="color: white;"Countless potholes on Mwiki road causing a lot of traffic</td>
-                <td style="color: white;">Mwiki, Kiambu</td>
-                <td style="color: white;">Under Investigation</td>
-                <td style="color: white;">True</td>
-            </tr>
-            <tr>
-                <td style="color: white;">3</td>
-                <td style="color: white;">Nepotism</td>
-                <td style="color: white;">Red flag</td>
-                <td style="color: white;">Bribing at Engineer Birth Registration center</td>
-                <td style="color: white;">Engineer, Nyandarua</td>
-                <td style="color: white;">Resolved</td>
-                <td style="color: white;">True</td>
-            </tr>
-            <tr>
-                <td style="color: white;">4</td>
-                <td style="color: white;">Fallen Bridge</td>
-                <td style="color: white;">Intervention</td>
-                <td style="color: white;">A fallen Bridge at Muhoroni cutting transport</td>
-                <td style="color: white;">Muhoroni, Kisumu</td>
-                <td style="color: white;">Rejected</td>
-                <td style="color: white;">True</td>
-            </tr>
+            {% endfor %}
+            </tbody>
         </table>
     </div>
 </div>

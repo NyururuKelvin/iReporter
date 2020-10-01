@@ -27,9 +27,9 @@
                       <li><a style="color: brown; padding-left: 30px;" href="/">Home</a></li>
                       <li><a style="color: brown; padding-left:30px;" href="/dashboard">Dashboard</a></li>
                       
-                      {% if current_user.is_authenticated%}
-                      <li><a style="color: brown; padding-left:30px;" href="{{url_for('main.case')}}">Report</a></li>
                       
+                      <li><a style="color: brown; padding-left:30px;" href="{{url_for('main.case')}}">Report</a></li>
+                      {% if current_user.is_authenticated%}
                       <li><a style="color: brown; padding-left: 30px;" href="{{url_for('auth.logout')}}">Sign Out</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right" style="display: inline;">

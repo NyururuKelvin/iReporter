@@ -27,6 +27,7 @@ def case():
         title = form.title.data
         description = form.description.data
         geolocation = form.geolocation.data
+        status_id = "Received"
 
         if "photo" in request.files:
             pic = photos.save(request.files["photo"])
@@ -35,6 +36,7 @@ def case():
         post = Case(category = category, title = title, description=description, geolocation=geolocation, image = image,)
         db.session.add(post)
         db.session.commit()
+        return redirect(url_for(".dashboard"))
         
         
     return render_template("add_incidences.html",form = form,title = title)
@@ -50,8 +52,9 @@ def dashboard():
     '''
     View root page function that returns the dashboard page and its data
     '''
+    cases = Case.query
 
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', cases=cases)
 
 @main.route("/post/<int:id>",methods = ["GET","POST"])
 def post_page(id):

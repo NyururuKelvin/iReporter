@@ -21,7 +21,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("admin.login"))
+    return redirect(url_for(".login"))
 
 @admin.route('/register',methods = ["GET","POST"])
 def register():
@@ -33,6 +33,6 @@ def register():
 
         mail_message("Welcome to pitch","email/welcome_user",admin.email,admin=admin)
 
-        return redirect(url_for('admin.login'))
+        return redirect(url_for('.login'))
         title = "New Account"
     return render_template('admin/register.html',form = form)
