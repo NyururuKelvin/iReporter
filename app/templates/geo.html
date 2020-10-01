@@ -1,0 +1,48 @@
+{% extends "material/base.html" %}
+{% block content %}
+
+<!--Import Google Icon Font-->
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+ <!-- SHOWCASE -->
+ <br>
+    <div class="showcase container">
+        <div class="row blue">
+            <div class="col s12 m10 offset-m1 center">
+                <h5>Welcome iReporter</h5>
+                    <p>Report any act of corruption</p>
+                <br>
+            </div>
+        </div>
+    </div>
+    <button>Loc</button>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <!-- Inserted Dynamic Places In Image -->
+                        <img src="https://earth.google.com/web/search/{{place}}/" alt="map of {{place}}">
+                    </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">World Map<i class="material-icons right">more_vert</i></span>
+                            <p><a href="#">This is a {{place}}</a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Street Map<i class="material-icons right">close</i></span>
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <!-- Inserted Dynamic Places In Image -->
+                                <img class="activator" src="https://maps.googleapis.com/maps/api/streetview?size=700x300&location={{place}}" alt="street view of {{place}}">
+                            </div>
+
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
