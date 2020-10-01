@@ -44,10 +44,10 @@
         <tbody>
             {% for case in cases %}
             <tr>
-                <td>{{ case.category }}</td>
-                <td>{{ case.title }}</td>
-                <td>{{ case.status }}</td>
-                <td>
+                <td style="color: white;">{{ case.category }}</td>
+                <td style="color: white;">{{ case.title }}</td>
+                <td style="color: white;">{{ case.status }}</td>
+                <td style="color: white;">
                   <a href="/admin/case/{{case.id}}">
                     <button type="button" class="btn btn-primary">Update</button>
                   </a>

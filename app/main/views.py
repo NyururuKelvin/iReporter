@@ -27,13 +27,13 @@ def case():
         title = form.title.data
         description = form.description.data
         geolocation = form.geolocation.data
-        status_id = "Received"
+        status_id = 1
 
         if "photo" in request.files:
             pic = photos.save(request.files["photo"])
             file_path = f"photos/{pic}"
             image = file_path
-        post = Case(category = category, title = title, description=description, geolocation=geolocation, image = image,)
+        post = Case(category = category, title = title, description=description, geolocation=geolocation, image = image, status_id=status_id)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for(".dashboard"))
@@ -59,8 +59,26 @@ def dashboard():
 @main.route("/post/<int:id>",methods = ["GET","POST"])
 def post_page(id):
     post = Case.query.filter_by(id = id).first()
-    title = post.title
     
-    return render_template("display.html", title = title, post = post)
+    return render_template("display.html", post = post)
  
-    
+@main.route("/delete/case/<id>")
+def delete_case(id):
+    case = Case.query.filter_by(id = id).first()
+    case_id = case.id
+    db.session.delete(case)
+    db.session.commit()
+    return redirect(url_for(".dashboard"))
+
+@main.route('/status', methods=["GET", "POST"] )
+def status():
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+    state= request.form.get("state")
+    new_status=Status(status=state)
+    db.session.add(new_status)
+    db.session.commit()
+
+    return render_template("edit_incidences.html")
